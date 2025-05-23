@@ -9,7 +9,11 @@ class Client:
         self.reference = build(
             serviceName=api_service_name, version=api_version, developerKey=api_key
         )
-        
+    
+    def to_Dataframe():
+        return "xyz"
+
+
 
     
 
