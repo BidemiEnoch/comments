@@ -7,9 +7,7 @@ api_version = "v3"
 
 class Client:
     def __init__(self, api_key: str, saveHistory: bool = True):
-        self.reference = build(
-            serviceName=api_service_name, version=api_version, developerKey=api_key
-        )
+        self.reference = build(serviceName=api_service_name, version=api_version, developerKey=api_key)
         self.saveHistory = saveHistory
         self.history = []
 

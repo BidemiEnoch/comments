@@ -17,9 +17,7 @@ def analyze_sentiment(
     comments = []
     analysis = []
 
-    req = client.reference.commentThreads().list(
-        part="snippet", videoId=contentID, maxResults=sampleSize
-    )
+    req = client.reference.commentThreads().list(part="snippet", videoId=contentID, maxResults=sampleSize)
     res = req.execute()
 
     for item in res["items"]:
@@ -52,3 +50,6 @@ def analyze_sentiment(
         client.history.append(comments)
 
     return comments
+
+def zero_shot_classification():
+    pass
