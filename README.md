@@ -1,39 +1,46 @@
 # Comments
-A python library for pulling and applying sentiment analysis with huggingface models to youtube comments.
+A python library for pulling and applying sentiment analysis to youtube comments. It utilizes the Google client API to fetch Youtube data, and Huggingface transformers for machine learning tasks.
 
-## Quick start
+## Installation
 ```
 git clone https://github.com/BidemiEnoch/comments.git
 ```
 ## Example usage
 ```python 
-from comments import Client, analyze_sentiment
+from comments import Client, analyze_sentiment, zero_shot_classification
 
 key = "<Your Youtube API key>"
 client = Client(key)
 
-analysis = analyze_sentiment(
-    client,
-    contentID="<Youtube video ID>",
-    sampleSize=50
-)
+#Fetch 50 comments
+comments = client.fetch_comments(contentID="<Youtube video ID>", sampleSize = 50)
 
-#You can also specify a model to be used for the analysis
-analysis_with_model = analyze_sentiment(
-    client,
-    contentID="<Youtube video ID>",
-    sampleSize=50,
-    model="distilbert/distilbert-base-uncased-finetuned-sst-2-english",
-)
+#You can perform sentiment analysis on the comments
+sentiment = analyze_sentiment(comments)
 
-#The client saves a history of every analysis
-client.history
-
-#You can get your results as a dataframe
-dt = client.DataFrame(analysis_with_model)
-#If no parameter is passed, it uses the saved client history
-dt = client.DataFrame()
+#You can also perform classification tasks
+classification = zero_shot_classification(
+    comments, 
+    labels = ["<Label 1>", "<Label 2>", "...","<Label n>"]
+    )
 ```
+## Usage with specific models
+```python
+#You can specify a huggingface model for each task
+sentiment = analyze_sentiment(
+    comments, 
+    model="distilbert/distilbert-base-uncased-finetuned-sst-2-english"
+    )
+
+classification = zero_shot_classification(
+    comments, 
+    labels = ["<Label 1>", "<Label 2>", "...","<Label n>"],
+    model="facebook/bart-large-mnli"
+    )
+```
+## About Huggingface models
+Huggingface is a platform where the machine learning community collaborates on models, datasets, and applications. Read more https://huggingface.co/
+
 ## License
 MIT
 
