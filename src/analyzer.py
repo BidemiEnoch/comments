@@ -1,9 +1,6 @@
 from transformers import pipeline
 import pandas as pd
 
-api_service_name = "youtube"
-api_version = "v3"
-
 
 def analyze_sentiment(comments: dict, data_frame: bool = False, **kwargs) -> pd.DataFrame | dict:
     if "model" not in kwargs:
