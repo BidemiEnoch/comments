@@ -8,10 +8,10 @@ class Client:
     def __init__(self, api_key: str):
         self.reference = build(serviceName=api_service_name, version=api_version, developerKey=api_key)
 
-    def fetch_comments(self, *, contentID: str, sampleSize: int = 100, trim_results: bool = True) -> dict:
+    def fetch_comments(self, *, content_id: str, sample_size: int = 100, trim_results: bool = True) -> dict:
         comments = []
 
-        req = self.reference.commentThreads().list(part="snippet", videoId=contentID, maxResults=sampleSize)
+        req = self.reference.commentThreads().list(part="snippet", videoId=content_id, maxResults=sample_size)
         res = req.execute()
 
         for index, item in enumerate(res["items"]):
