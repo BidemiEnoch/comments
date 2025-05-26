@@ -13,7 +13,7 @@ key = "<Your Youtube API key>"
 client = Client(key)
 
 #Fetch 50 comments
-comments = client.fetch_comments(contentID="<Youtube video ID>", sampleSize = 50)
+comments = client.fetch_comments(content_id="<Youtube video ID>", sample_size = 50)
 
 #You can perform sentiment analysis on the comments
 sentiment = analyze_sentiment(comments)
