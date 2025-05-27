@@ -1,12 +1,12 @@
 from googleapiclient.discovery import build
 
-api_service_name = "youtube"
-api_version = "v3"
+API_SERVICE_NAME = "youtube"
+API_VERSION = "v3"
 
 
 class Client:
     def __init__(self, api_key: str):
-        self.reference = build(serviceName=api_service_name, version=api_version, developerKey=api_key)
+        self.reference = build(serviceName=API_SERVICE_NAME, version=API_VERSION, developerKey=api_key)
 
     def fetch_comments(self, *, content_id: str, sample_size: int = 100, trim_results: bool = True) -> dict:
         comments = []
