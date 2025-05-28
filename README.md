@@ -21,7 +21,7 @@ sentiment = analyze_sentiment(comments)
 #You can also perform classification tasks
 classification = zero_shot_classification(
     comments, 
-    labels = ["<Label 1>", "<Label 2>", "...","<Label n>"]
+    labels = ["<Label 1>", "<Label 2>", "<Label 3>"]
     )
 ```
 ## Usage with specific models
