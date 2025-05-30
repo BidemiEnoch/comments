@@ -5,7 +5,7 @@ A python library for pulling and applying sentiment analysis to youtube comments
 ```
 git clone https://github.com/BidemiEnoch/comments.git
 ```
-## Example usage
+## Code example
 ```python 
 from comments import Client, analyze_sentiment, zero_shot_classification
 
