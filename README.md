@@ -39,7 +39,7 @@ classification = zero_shot_classification(
     )
 ```
 ## About Huggingface models
-Huggingface is a platform where the machine learning community collaborates on models, datasets, and applications. Read more https://huggingface.co/
+Huggingface is a platform where the machine learning community collaborates on models, datasets, and applications. You can read more https://huggingface.co/
 
 ## License
 MIT
